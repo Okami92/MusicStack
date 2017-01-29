@@ -3,22 +3,15 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Signout extends Component {
-    constructor() {
-        super();
+  componentWillMount() {
+    this.props.signoutUser();
+  }
 
-    }
-
-    render() {
-        return (
-            <div>
-
-            </div>
-        );
-    }
+  render() {
+    return <div>Sorry to see you go...</div>;
+  }
 }
 
-Signout.propTypes = {
+Signout.propTypes = {};
 
-};
-
-export default Signout;
+export default connect(null, actions)(Signout);
