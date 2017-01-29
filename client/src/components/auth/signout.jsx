@@ -12,6 +12,8 @@ class Signout extends Component {
   }
 }
 
-Signout.propTypes = {};
+Signout.propTypes = {
+  signoutUser: React.PropTypes.func.isRequired,
+};
 
 export default connect(null, actions)(Signout);
