@@ -1,17 +1,17 @@
-const jwt = require('jwt-simple');
-const User = require('../../models/user');
-const config = require('../../config');
+import jwt from 'jwt-simple';
+import User from '../../models/user';
+import config from '../../config';
 
-function tokenForUser(user) {
+const tokenForUser = (user) => {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret); // iat - issued at time
-}
-
-exports.signin = function (req, res, next) {
-  res.send({ token: tokenForUser(req.user) });
 };
 
-exports.signup = function (req, res, next) {
+export function signin(req, res) {
+  res.send({ token: tokenForUser(req.user) });
+}
+
+export function signup(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -19,7 +19,7 @@ exports.signup = function (req, res, next) {
     return res.status(422).send({ error: 'You must provide email and password' });
   }
 
-  User.findOne({ email: email }, function (err, existingUser) {
+  User.findOne({ email }, (err, existingUser) => {
     if (err) { return next(err); }
 
     if (existingUser) {
@@ -27,14 +27,14 @@ exports.signup = function (req, res, next) {
     }
 
     const user = new User({
-      email: email,
-      password: password,
+      email,
+      password,
     });
 
-    user.save(function (err) {
+    user.save((err) => {
       if (err) { return next(err); }
     });
 
     res.json({ token: tokenForUser(user) });
   });
-};
+}
