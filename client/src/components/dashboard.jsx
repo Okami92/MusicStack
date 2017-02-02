@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   componentWillMount() {
     this.props.fetchMessage();
@@ -24,12 +20,13 @@ class Dashboard extends Component {
 
 
 Dashboard.propTypes = {
-  fetchMessage: PropTypes.func.isRequired,
+  fetchMessage: PropTypes.func,
   message: PropTypes.string,
 };
 
 Dashboard.defaultProps = {
   message: undefined,
+  fetchMessage: undefined,
 };
 
 function mapStateToProps(state) {
