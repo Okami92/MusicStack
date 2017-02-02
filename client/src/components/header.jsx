@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
@@ -34,7 +34,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  authenticated: React.PropTypes.bool,
+  authenticated: PropTypes.bool,
 };
 
 Header.defaultProps = {

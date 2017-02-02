@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import renderInput from '../form-field';
@@ -80,9 +80,9 @@ function validate(formProps) {
 }
 
 Signup.propTypes = {
-  handleSubmit: React.PropTypes.func.isRequired,
-  signupUser: React.PropTypes.func.isRequired,
-  errorMessage: React.PropTypes.string,
+  handleSubmit: PropTypes.func.isRequired,
+  signupUser: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
 };
 
 Signup.defaultProps = {
