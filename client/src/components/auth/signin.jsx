@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import renderInput from '../form-field';
@@ -47,9 +47,9 @@ class Signin extends Component {
 }
 
 Signin.propTypes = {
-  handleSubmit: React.PropTypes.func.isRequired,
-  signinUser: React.PropTypes.func.isRequired,
-  errorMessage: React.PropTypes.string,
+  handleSubmit: PropTypes.func.isRequired,
+  signinUser: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
 };
 
 Signin.defaultProps = {
