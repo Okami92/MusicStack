@@ -1,13 +1,12 @@
-const express = require('express');
-const http = require('http');
-const bodyParser = require('body-parser');
+import express from 'express';
+import http from 'http';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import morgan from 'morgan';
+import router from './router';
+
 const app = express();
-const router = require('./router');
-
-import cors from "cors";
-import mongoose from "mongoose";
-import morgan from "morgan";
-
 
 mongoose.connect('mongodb://localhost:auth/auth');
 
