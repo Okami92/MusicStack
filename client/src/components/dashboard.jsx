@@ -22,6 +22,7 @@ class Dashboard extends Component {
   }
 }
 
+
 Dashboard.propTypes = {
   fetchMessage: React.PropTypes.func.isRequired,
   message: React.PropTypes.string,
@@ -36,3 +37,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(Dashboard);
+
